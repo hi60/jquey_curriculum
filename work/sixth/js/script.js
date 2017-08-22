@@ -1,18 +1,16 @@
 'use strict';
 
 $(function(){
-    $('.input').keyup(
-        function(){
-            var textCount = $(this).val().replace(/\s+/g,'').length;
-            var restCount = 30 - textCount;
-            $('.rest-count').html(restCount);
-            if (restCount <= -1){
-                $('.rest-count').addClass('red');
-            } else {
-                $('.rest-count').removeClass('red');
-            }
+    $('.input').keyup(function() {
+        var textCount = $(this).val().replace(/\s+/g,'').length;
+        var restCount = 30 - textCount;
+        $('.rest-count').html(restCount);
+        if (restCount <= -1){
+            $('.rest-count').addClass('red');
+        } else {
+            $('.rest-count').removeClass('red');
         }
-    )
+    });
 });
 
 // restCount -= textCount

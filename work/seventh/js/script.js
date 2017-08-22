@@ -8,7 +8,7 @@ $(function(){
 
     var slideLocation = 0;
 
-    var slideMove = function(){
+    function slideMove(){
         if(slideLocation < 0){
             slideLocation = slideCount - 1;
         } else if(slideLocation > slideCount - 1){
@@ -19,16 +19,14 @@ $(function(){
         });
     }
 
-    $('button').click(
-        function(){
-            var dataType = $(this).data('ctrl');
-            if (dataType === 'prev'){
-                slideLocation--;
-                slideMove();
-            } else {
-                slideLocation++;
-                slideMove();
-            }
+    $('button').on('click', function(){
+        var dataType = $(this).data('ctrl');
+        if (dataType === 'prev'){
+            slideLocation--;
+            slideMove();
+        } else {
+            slideLocation++;
+            slideMove();
         }
-    )
+    });
 });

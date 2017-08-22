@@ -1,14 +1,12 @@
 'use strict';
 
 $(function(){
-    $('.menu__list').children('li').hover(
-        function(){
+    $('.menu__list').children('li').on('hover', function(){
             $(this).children('ul').stop().slideDown(500);
-        },
-        function(){
-            $(this).children('ul').stop().slideUp(500);
-        }
-    );
+    },
+    function(){
+        $(this).children('ul').stop().slideUp(500);
+    });
 
 });
 

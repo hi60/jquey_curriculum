@@ -3,72 +3,51 @@
 $(function(){
     $('#q1').css('color', 'red');
     
-    $('#q2').click(
-        function(){
-            $('#q2').css('background', 'pink');
-        }
-    );
+    $('#q2').on('click', function() {
+        $(this).css('background', 'pink');
+    });
 
-    $('#q3').click(
-        function(){
-            $('#q3').fadeOut(2000);
-        }
-    );
+    $('#q3').on('click', function() {
+        $(this).fadeOut(2000);
+    });
 
-    $('#q4').click(
-        function(){
-            $('#q4').prepend('foward')
-                    .append('back')
-                    .before('forwardOut')
-                    .after('backOut');
-        }
-    );
+    $('#q4').on('click', function() {
+        $(this).prepend('foward')
+               .append('back')
+               .before('forwardOut')
+               .after('backOut');
+    });
 
-    $('#q5').click(
-        function(){
-            $('q5').toggleClass('large');
-        }
-    );
+    $('#q5').on('click', function() {
+        $(this).toggleClass('large');
+    });
 
-    $('#q6').click(
-        function(){
-            $('#q6').animate({
-                'margin-top': '100px',
-                'margin-left': '100px'
-            }, 2000);
-        }
-    );
+    $('#q6').on('click', function() {
+        $(this).animate({
+            'margin-top': '100px',
+            'margin-left': '100px'
+        }, 2000);
+    });
 
-    $('#q7 > li').click(
-        function(){
-            console.log($('#q7 > li').index(this));alert($('#q7 > li').index(this));
-        }
-    );
+    $('#q7').find('li').on('click', function() {
+            console.log($(this).index());
+            alert($(this).index());
+    });
 
-    $('#q8').hover(
-        function(){$('#q8').addClass('large');},
-        function(){$('#q8').removeClass('large');}
-    );
+    $('#q8').hover(function() {
+        $(this).addClass('large');
+    },
+    function() {
+        $(this).removeClass('large');
+    });
 
-    $('#q9').click(
-        function(){
-            console.log($(this).data('text'));
-        }
-    );
+    $('#q9').on('click', function() {
+        console.log($(this).data('text'));
+    });
 
-    $('#q10 > li').click(
-        function(){
-            var listIndex = $('#q10 > li').index(this);
-            $('#q11 > li').eq(listIndex).addClass('large');
-        }
-    );
-
-    // $('#q10 > li').each(function(index, Element){
-    //     $(this).click(
-    //         function(){
-    //             $('#q11 > li').addClass('large');
-    //         }
-    //     )
-    // });
+    $('#q10').find('li').on('click', function() {
+        var listIndex = $('#q10').find('li').index(this);
+        $('#q11').find('li').eq(listIndex).addClass('large');
+    });
 
 });
