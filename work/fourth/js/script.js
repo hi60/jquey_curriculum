@@ -1,7 +1,7 @@
 'use strict';
 
 $(function(){
-    $('.menu__list').children('li').on('hover', function(){
+    $('.menu__list').children('li').hover(function(){
             $(this).children('ul').stop().slideDown(500);
     },
     function(){

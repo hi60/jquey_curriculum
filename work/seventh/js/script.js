@@ -23,10 +23,9 @@ $(function(){
         var dataType = $(this).data('ctrl');
         if (dataType === 'prev'){
             slideLocation--;
-            slideMove();
         } else {
             slideLocation++;
-            slideMove();
         }
+        slideMove();
     });
 });

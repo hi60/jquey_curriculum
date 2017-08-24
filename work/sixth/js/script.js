@@ -1,7 +1,7 @@
 'use strict';
 
 $(function(){
-    $('.input').keyup(function() {
+    $('.input').on('keyup', function() {
         var textCount = $(this).val().replace(/\s+/g,'').length;
         var restCount = 30 - textCount;
         $('.rest-count').html(restCount);

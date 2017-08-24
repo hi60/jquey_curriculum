@@ -4,8 +4,7 @@ $(function(){
     $.ajax({
         url: './data.json'
     })
-    .done(jsonRead);
-    function jsonRead(data){
+    .done(function(data) {
         data.colorsArray.forEach(function(item) {
             // console.log(item);
             $('.colorList').append(
@@ -16,5 +15,5 @@ $(function(){
                 '</li>'
             )
         });
-    }
+    });
 })
