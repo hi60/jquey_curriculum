@@ -1,6 +1,6 @@
-'use strict';
-
 $(function() {
+    'use strict';
+
     $('button').on('click', function(){
         var searchWord = $('input').val();
         searchBooks(searchWord);
@@ -19,9 +19,20 @@ $(function() {
               page: 1,
               keyword: searchWord
             },
-          }).done(function(data) {
-              data.Items.forEach(function(item) {
-                // console.log(item);
+        }).done(function(data) {
+            // console.log(data);
+            $('.lists').empty();
+            $('.message').remove();
+            // console.log(data.Items);
+            if (data.Items.length === 0) {
+                $('.container').append(
+                    '<div class="message">' +
+                        '<p>検索結果が見つかりませんでした。</p>' +
+                        '<p>別のキーワードで検索して下さい。</p>' +
+                    '</div>'
+                )
+            } else {
+                data.Items.forEach(function(item) {
                     $('.lists').append(
                         "<li class='lists__item'>" +
                             "<div class='lists__item__inner'>" +
@@ -34,14 +45,13 @@ $(function() {
                             "</div>" +
                         "</li>"
                     )
-              });
-          }).fail(
-              $('.container').append(
-                    '<div class="message">' +
-                        '<p>検索結果が見つかりませんでした。</p>' +
-                        '<p>別のキーワードで検索して下さい。</p>' +
-                    '</div>'
-              )
-          )
+                });
+            }
+        }).fail(function(data){
+            // console.log(data.responseJSON);
+            alert('error: ' + data.responseJSON.error + '\n' +
+            'error_description: ' + data.responseJSON.error_description)
+        }
+        )
     }
 });
